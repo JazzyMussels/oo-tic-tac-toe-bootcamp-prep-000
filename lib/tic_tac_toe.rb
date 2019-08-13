@@ -58,28 +58,28 @@ def current_player
   turn_count.even? ? 'X' : 'O'
 end
 
-def won?(board)
+def won?
   WIN_COMBINATIONS.each do |combo|
-   return combo if combo.all?{|x| board[x] == 'X'} || combo.all?{|x| board[x] == 'O'}
+   return combo if combo.all?{|x| @board[x] == 'X'} || combo.all?{|x| @board[x] == 'O'}
  end
  false
 end
 
-def full?(board)
-  board.all?{|char| char == 'X' || char == 'O'}
+def full?
+  @board.all?{|char| char == 'X' || char == 'O'}
 end
 
-def draw?(board)
-  !won?(board) && full?(board)
+def draw?
+  !won? && full?
 end
 
-def over?(board)
-  won?(board) || full?(board) || draw?(board)
+def over?
+  won? || full? || draw?
 end
 
-def winner(board)
-  WIN_COMBINATIONS.each{|combo| return 'X' if combo.all?{|x| board[x] == 'X'}} 
-  return nil if !won?(board)
+def winner
+  WIN_COMBINATIONS.each{|combo| return 'X' if combo.all?{|x| @board[x] == 'X'}} 
+  return nil if !won?
   'O'
 end
 end
