@@ -82,4 +82,12 @@ def winner
   return nil if !won?
   'O'
 end
+
+def play
+  until over?
+    turn
+  end
+  puts "Congratulations #{winner}!" if won?
+  puts "Cat's Game!" if draw?
+end
 end
