@@ -26,8 +26,8 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def move(board, position, player)
-  board[position] = player
+def move(position, token)
+  @board[position] = token
 end
 
 def position_taken?(board, position)
