@@ -50,10 +50,8 @@ def turn
   end
 end
 
-def turn_count(board)
-  counter = 0 
-  board.each{|spot| counter += 1 if spot == 'X' || spot == 'O'}
-  counter 
+def turn_count
+  @board.count{|token| token == 'X' || spot == 'O'}
 end
 
 def current_player(board)
